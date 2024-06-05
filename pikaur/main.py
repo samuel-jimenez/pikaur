@@ -232,6 +232,7 @@ def execute_pikaur_operation(
     args = parse_args()
     cli_args = replace_args or sys.argv
     logger.debug("Pikaur operation found for args {}: {}", cli_args, pikaur_operation.__name__)
+    print("Pikaur operation found for args", cli_args, pikaur_operation.__name__)
     if args.read_stdin:
         logger.debug("Handling stdin as positional args:")
         logger.debug("    {}", args.positional)

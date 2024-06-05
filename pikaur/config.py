@@ -147,6 +147,14 @@ class _UserTempRoot(FixedPathSingleton):
 class _CachePathDefault(FixedPathSingleton):
     @classmethod
     def init_value(cls) -> Path:
+        print("\n_CachePathDefault")
+        print("--xdg-cache-home: ", pre_arg_parser("--xdg-cache-home", ""))
+        print(
+            "XDG_CACHE_HOME: ",
+            os.environ.get(
+                "XDG_CACHE_HOME",
+            ),
+        )
         return Path(
             pre_arg_parser("--xdg-cache-home", "")
             or os.environ.get(
@@ -159,6 +167,15 @@ class _CachePathDefault(FixedPathSingleton):
 class _UserCacheRoot(FixedPathSingleton):
     @classmethod
     def init_value(cls) -> Path:
+        print("\n_UserCacheRoot")
+        print("--xdg-cache-home: ", pre_arg_parser("--xdg-cache-home", ""))
+        print(
+            "XDG_CACHE_HOME: ",
+            os.environ.get(
+                "XDG_CACHE_HOME",
+            ),
+        )
+        print("config: ", PikaurConfig().misc.CachePath.get_str(),)
         return Path(
             pre_arg_parser("--xdg-cache-home", "")
             or os.environ.get(
@@ -205,6 +222,14 @@ class ConfigRoot(FixedPathSingleton):
 class _DataPathDefault(FixedPathSingleton):
     @classmethod
     def init_value(cls) -> Path:
+        print("\n_DataPathDefault")
+        print("--xdg-data-home: ", pre_arg_parser("--xdg-data-home", ""))
+        print(
+            "XDG_DATA_HOME: ",
+            os.environ.get(
+                "XDG_DATA_HOME",
+            ),
+        )
         return Path(
             pre_arg_parser("--xdg-data-home", "")
             or os.environ.get(
@@ -217,6 +242,15 @@ class _DataPathDefault(FixedPathSingleton):
 class DataRoot(FixedPathSingleton):
     @classmethod
     def init_value(cls) -> Path:
+        print("\nDataRoot")
+        print("--xdg-data-home: ", pre_arg_parser("--xdg-data-home", ""))
+        print(
+            "XDG_DATA_HOME: ",
+            os.environ.get(
+                "XDG_DATA_HOME",
+            ),
+        )
+        print("config: ", PikaurConfig().misc.DataPath.get_str(),)
         return (
             Path(
                 pre_arg_parser("--xdg-data-home", "")

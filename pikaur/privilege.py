@@ -103,6 +103,7 @@ def isolate_root_cmd(
 
 
 def get_args_to_elevate_pikaur(original_args: list[str]) -> list[str]:
+    print("\n sudo args:")
     args = parse_args()
     restart_args = original_args.copy()
     extra_args = [
@@ -119,6 +120,7 @@ def get_args_to_elevate_pikaur(original_args: list[str]) -> list[str]:
             ("--xdg-data-home", "xdg_data_home", "XDG_DATA_HOME"),
         ):
             arg_value = str(getattr(args, arg_key, None) or "")
+            print(flag, arg_value, os.environ.get(env_key))
             if value := (os.environ.get(env_key) or arg_value):
                 extra_args += [
                     (flag, value),
